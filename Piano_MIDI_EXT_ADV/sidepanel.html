@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FL Synth Studio Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="studio-rack">
+
+        <!-- HEADER & STATUS -->
+        <header id="status-bar" class="panel-blur">
+            <div class="logo">FL SYNTH STUDIO</div>
+            <div id="status-light">⚠️ CLICK TO FOCUS STUDIO</div>
+        </header>
+
+        <!-- MAIN CONTROL GRID -->
+        <main class="grid-container">
+
+            <!-- INSTRUMENT GENERATOR RACK -->
+            <section class="rack-unit">
+                <h2 class="unit-title">Generator & Models</h2>
+                <div class="control-row">
+                    <div class="input-group">
+                        <label for="model-preset">Model Style</label>
+                        <select id="model-preset">
+                            <optgroup label="Piano Models">
+                                <option value="acoustic" selected>Acoustic Grand</option>
+                                <option value="vintage">Vintage Grand</option>
+                                <option value="electric">Electric Piano</option>
+                                <option value="rhodes">Mark I Rhodes</option>
+                                <option value="analog">80s Analog Pad</option>
+                                <option value="fm">FM Bell Synth</option>
+                                <option value="classic">Classic Concert</option>
+                                <option value="romantic">Romantic Warmth</option>
+                                <option value="jazz">Jazz Blues</option>
+                                <option value="pop">Bright Pop</option>
+                                <option value="ballad">Ballad Felt</option>
+                                <option value="rnb">R&B Soft</option>
+                                <option value="ambient">Ambient Space</option>
+                                <option value="cinematic">Cinematic Dark</option>
+                                <option value="bass">Piano Sub Bass</option>
+                                <option value="country">Country Twang</option>
+                            </optgroup>
+                            <optgroup label="Guitar Models">
+                                <option value="guitar-classic">Classical Guitar</option>
+                                <option value="guitar-acoustic">Acoustic Steel</option>
+                                <option value="guitar-electric">Overdriven Lead</option>
+                                <option value="guitar-bass">Fretless Bass</option>
+                                <option value="guitar-blue">Blues Resonator</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="track-mode">Routing Mode</label>
+                        <select id="track-mode">
+                            <option value="single">Single Track (Poly)</option>
+                            <option value="multi">Multi-Track (Harmonic)</option>
+                            <option value="seq">Sequential (Arp)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-row">
+                    <div class="input-group">
+                        <label for="wave-shape">Waveform (Character)</label>
+                        <select id="wave-shape">
+                            <option value="warm" selected>Warm (Triangle)</option>
+                            <option value="soft">Soft (Sine)</option>
+                            <option value="bright">Bright (Sawtooth)</option>
+                            <option value="retro">Retro (Square)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="octave">Octave Shift</label>
+                        <select id="octave">
+                            <option value="2">Low (-1)</option>
+                            <option value="3" selected>Standard (0)</option>
+                            <option value="4">High (+1)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-row sliders">
+                    <div class="slider-item">
+                        <label>Pitch Control (Fine): <span id="pitch-bend-val">0</span></label>
+                        <input type="range" id="pitch-bend" min="-1200" max="1200" step="50" value="0">
+                    </div>
+                </div>
+            </section>
+
+            <!-- MASTER EFFECTS RACK -->
+            <section class="rack-unit">
+                <h2 class="unit-title">Master FX Rack</h2>
+                <div class="control-row sliders">
+                    <div class="slider-item">
+                        <label>Lowpass Cutoff <span id="cutoff-txt">3000 Hz</span></label>
+                        <input type="range" id="cutoff" min="100" max="10000" step="100" value="3000">
+                    </div>
+                    <div class="slider-item">
+                        <label>Resonance <span id="res-txt">1.0</span></label>
+                        <input type="range" id="resonance" min="0.1" max="15" step="0.1" value="1.0">
+                    </div>
+                    <div class="slider-item">
+                        <label>Echo Mix (Delay) <span id="delay-txt">20%</span></label>
+                        <input type="range" id="delay-mix" min="0" max="0.9" step="0.05" value="0.2">
+                    </div>
+                    <div class="slider-item">
+                        <label>Reverb Space <span id="reverb-txt">30%</span></label>
+                        <input type="range" id="reverb-mix" min="0" max="0.9" step="0.05" value="0.3">
+                    </div>
+                </div>
+
+                <div class="control-row inline-settings">
+                    <div class="control-item-inline">
+                        <input type="checkbox" id="sustain">
+                        <label for="sustain">Sustain Pedal</label>
+                    </div>
+                    <div class="control-item-inline">
+                        <label for="volume">Main Vol</label>
+                        <input type="range" id="volume" min="0" max="1" step="0.05" value="0.4" style="width: 80px;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- BEAT MACHINE & SEQUENCER -->
+            <section class="rack-unit">
+                <h2 class="unit-title">Beat Arranger</h2>
+                <div class="control-row align-center">
+                    <button id="play-beat" class="fl-btn">Play Beat Loop</button>
+                    <div class="tempo-group">
+                        <label>Tempo <span id="tempo-txt">120 BPM</span></label>
+                        <input type="range" id="tempo" min="60" max="200" value="120">
+                    </div>
+                </div>
+                <div class="drum-pads-grid">
+                    <div class="pad" data-pad="kick">Kick</div>
+                    <div class="pad" data-pad="snare">Snare</div>
+                    <div class="pad" data-pad="hat">Hat</div>
+                    <div class="pad" data-pad="clap">Clap</div>
+                </div>
+            </section>
+
+            <!-- REAL-TIME PIANO ROLL VISUALIZER -->
+            <section class="rack-unit piano-roll-unit">
+                <h2 class="unit-title">MIDI Piano Roll</h2>
+                <canvas id="piano-roll-canvas"></canvas>
+            </section>
+
+        </main>
+
+        <!-- CHROMATIC KEYBED CONTAINER -->
+        <section class="keybed-container">
+            <div id="keyboard" class="piano-keyboard">
+                <!-- White keys (C4 to E6) -->
+                <div class="key white" data-key="KeyZ" data-note="C4"><span class="lbl">Z<br>C4</span></div>
+                <div class="key white" data-key="KeyX" data-note="D4"><span class="lbl">X<br>D4</span></div>
+                <div class="key white" data-key="KeyC" data-note="E4"><span class="lbl">C<br>E4</span></div>
+                <div class="key white" data-key="KeyV" data-note="F4"><span class="lbl">V<br>F4</span></div>
+                <div class="key white" data-key="KeyB" data-note="G4"><span class="lbl">B<br>G4</span></div>
+                <div class="key white" data-key="KeyN" data-note="A4"><span class="lbl">N<br>A4</span></div>
+                <div class="key white" data-key="KeyM" data-note="B4"><span class="lbl">M<br>B4</span></div>
+                <div class="key white" data-key="Comma" data-note="C5"><span class="lbl">,<br>C5</span></div>
+                <div class="key white" data-key="KeyQ" data-note="C5"><span class="lbl">Q<br>C5</span></div>
+                <div class="key white" data-key="KeyW" data-note="D5"><span class="lbl">W<br>D5</span></div>
+                <div class="key white" data-key="KeyE" data-note="E5"><span class="lbl">E<br>E5</span></div>
+                <div class="key white" data-key="KeyR" data-note="F5"><span class="lbl">R<br>F5</span></div>
+                <div class="key white" data-key="KeyT" data-note="G5"><span class="lbl">T<br>G5</span></div>
+                <div class="key white" data-key="KeyY" data-note="A5"><span class="lbl">Y<br>A5</span></div>
+                <div class="key white" data-key="KeyU" data-note="B5"><span class="lbl">U<br>B5</span></div>
+                <div class="key white" data-key="KeyI" data-note="C6"><span class="lbl">I<br>C6</span></div>
+                <div class="key white" data-key="KeyO" data-note="D6"><span class="lbl">O<br>D6</span></div>
+                <div class="key white" data-key="KeyP" data-note="E6"><span class="lbl">P<br>E6</span></div>
+
+                <!-- Black keys styled in physical layout alignment -->
+                <div class="key black" data-key="KeyS" style="left: calc(100% / 18 * 1 - 9px);"><span
+                        class="lbl">S</span></div>
+                <div class="key black" data-key="KeyD" style="left: calc(100% / 18 * 2 - 9px);"><span
+                        class="lbl">D</span></div>
+                <div class="key black" data-key="KeyG" style="left: calc(100% / 18 * 4 - 9px);"><span
+                        class="lbl">G</span></div>
+                <div class="key black" data-key="KeyH" style="left: calc(100% / 18 * 5 - 9px);"><span
+                        class="lbl">H</span></div>
+                <div class="key black" data-key="KeyJ" style="left: calc(100% / 18 * 6 - 9px);"><span
+                        class="lbl">J</span></div>
+                <div class="key black" data-key="Digit2" style="left: calc(100% / 18 * 9 - 9px);"><span
+                        class="lbl">2</span></div>
+                <div class="key black" data-key="Digit3" style="left: calc(100% / 18 * 10 - 9px);"><span
+                        class="lbl">3</span></div>
+                <div class="key black" data-key="Digit5" style="left: calc(100% / 18 * 12 - 9px);"><span
+                        class="lbl">5</span></div>
+                <div class="key black" data-key="Digit6" style="left: calc(100% / 18 * 13 - 9px);"><span
+                        class="lbl">6</span></div>
+                <div class="key black" data-key="Digit7" style="left: calc(100% / 18 * 14 - 9px);"><span
+                        class="lbl">7</span></div>
+                <div class="key black" data-key="Digit9" style="left: calc(100% / 18 * 16 - 9px);"><span
+                        class="lbl">9</span></div>
+                <div class="key black" data-key="Digit0" style="left: calc(100% / 18 * 17 - 9px);"><span
+                        class="lbl">0</span></div>
+            </div>
+        </section>
+
+    </div>
+    <script src="sidepanel.js"></script>
+</body>
+
+</html>

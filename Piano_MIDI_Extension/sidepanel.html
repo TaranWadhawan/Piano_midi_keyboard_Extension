@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QWERTY Piano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <h2>QWERTY Piano</h2>
+        <p class="instruction">Click inside this panel to focus, then use your QWERTY keyboard to play.</p>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <label for="waveform">Waveform:</label>
+                <select id="waveform">
+                    <option value="triangle" selected>Warm (Triangle)</option>
+                    <option value="sine">Soft (Sine)</option>
+                    <option value="sawtooth">Bright (Sawtooth)</option>
+                    <option value="square">Retro (Square)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="octave">Base Octave:</label>
+                <select id="octave">
+                    <option value="2">Low (Octave 2)</option>
+                    <option value="3" selected>Mid-Low (Octave 3)</option>
+                    <option value="4">Standard (Octave 4)</option>
+                    <option value="5">High (Octave 5)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="volume">Volume:</label>
+                <input type="range" id="volume" min="0" max="1" step="0.05" value="0.3">
+            </div>
+        </div>
+
+        <!-- Piano keyboard layout display -->
+        <div class="piano-keyboard">
+            <!-- White Keys -->
+            <div class="key white" data-note="C" data-key="Z"><span class="label">Z<br>C</span></div>
+            <div class="key black" data-note="Cs" data-key="S"><span class="label">S<br>C#</span></div>
+
+            <div class="key white" data-note="D" data-key="X"><span class="label">X<br>D</span></div>
+            <div class="key black" data-note="Ds" data-key="D"><span class="label">D<br>D#</span></div>
+
+            <div class="key white" data-note="E" data-key="C"><span class="label">C<br>E</span></div>
+
+            <div class="key white" data-note="F" data-key="V"><span class="label">V<br>F</span></div>
+            <div class="key black" data-note="Fs" data-key="G"><span class="label">G<br>F#</span></div>
+
+            <div class="key white" data-note="G" data-key="B"><span class="label">B<br>G</span></div>
+            <div class="key black" data-note="Gs" data-key="H"><span class="label">H<br>G#</span></div>
+
+            <div class="key white" data-note="A" data-key="N"><span class="label">N<br>A</span></div>
+            <div class="key black" data-note="As" data-key="J"><span class="label">J<br>A#</span></div>
+
+            <div class="key white" data-note="B" data-key="M"><span class="label">M<br>B</span></div>
+
+            <!-- Upper Octave Transition White Key -->
+            <div class="key white" data-note="C2" data-key=","><span class="label">,<br>C</span></div>
+        </div>
+
+        <div class="piano-keyboard upper">
+            <!-- Upper Octave row (QWERTY) -->
+            <div class="key white" data-note="C2" data-key="Q"><span class="label">Q<br>C</span></div>
+            <div class="key black" data-note="Cs2" data-key="2"><span class="label">2<br>C#</span></div>
+
+            <div class="key white" data-note="D2" data-key="W"><span class="label">W<br>D</span></div>
+            <div class="key black" data-note="Ds2" data-key="3"><span class="label">3<br>D#</span></div>
+
+            <div class="key white" data-note="E2" data-key="E"><span class="label">E<br>E</span></div>
+
+            <div class="key white" data-note="F2" data-key="R"><span class="label">R<br>F</span></div>
+            <div class="key black" data-note="Fs2" data-key="5"><span class="label">5<br>F#</span></div>
+
+            <div class="key white" data-note="G2" data-key="T"><span class="label">T<br>G</span></div>
+            <div class="key black" data-note="Gs2" data-key="6"><span class="label">6<br>G#</span></div>
+
+            <div class="key white" data-note="A2" data-key="Y"><span class="label">Y<br>A</span></div>
+            <div class="key black" data-note="As2" data-key="7"><span class="label">7<br>A#</span></div>
+
+            <div class="key white" data-note="B2" data-key="U"><span class="label">U<br>B</span></div>
+
+            <div class="key white" data-note="C3" data-key="I"><span class="label">I<br>C</span></div>
+            <div class="key black" data-note="Cs3" data-key="9"><span class="label">9<br>C#</span></div>
+
+            <div class="key white" data-note="D3" data-key="O"><span class="label">O<br>D</span></div>
+            <div class="key black" data-note="Ds3" data-key="0"><span class="label">0<br>D#</span></div>
+
+            <div class="key white" data-note="E3" data-key="P"><span class="label">P<br>E</span></div>
+        </div>
+    </div>
+    <script src="sidepanel.js"></script>
+</body>
+
+</html>

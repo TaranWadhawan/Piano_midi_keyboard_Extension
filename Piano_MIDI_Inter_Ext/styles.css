@@ -1,0 +1,255 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #0d0e12;
+    color: #e2e8f0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+#container {
+    max-width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+header.focus {
+    background-color: #1e1b4b;
+    border: 1px solid #4338ca;
+}
+
+header.blur {
+    background-color: #1c1917;
+    border: 1px solid #ef444433;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #6366f1;
+}
+
+#focus-status {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+header.blur #focus-status {
+    color: #f87171;
+}
+
+header.focus #focus-status {
+    color: #34d399;
+}
+
+.panel-section {
+    background-color: #151821;
+    border: 1px solid #242936;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+.control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.control-row.sliders {
+    flex-direction: column;
+    gap: 4px;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.control-item-inline {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    gap: 4px;
+}
+
+label {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+select,
+input[type="range"] {
+    background-color: #1e2230;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 0.75rem;
+}
+
+.control-slider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.control-slider label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-slider label span {
+    color: #38bdf8;
+}
+
+.drums h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #f43f5e;
+}
+
+.drum-pads {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.drum-pad {
+    background-color: #271c24;
+    color: #fda4af;
+    border: 1px solid #f43f5e33;
+    border-radius: 6px;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drum-pad:active,
+.drum-pad.active {
+    background-color: #f43f5e;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+}
+
+.drum-key {
+    font-size: 0.55rem;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+.sequencer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+#toggle-beat {
+    background-color: #312e81;
+    color: #c7d2fe;
+    border: 1px solid #4338ca;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#toggle-beat.active {
+    background-color: #10b981;
+    border-color: #059669;
+    color: #fff;
+}
+
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.keyboard-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 6px;
+    background-color: #090a0f;
+    padding: 2px 0;
+}
+
+.piano-keyboard-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 450px;
+    height: 140px;
+}
+
+.key {
+    cursor: pointer;
+}
+
+.key.white {
+    flex: 1;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 0 4px 4px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    color: #334155;
+    z-index: 1;
+}
+
+.key.black {
+    position: absolute;
+    width: 20px;
+    height: 65%;
+    background-color: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 0 0 3px 3px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+    box-sizing: border-box;
+    color: #94a3b8;
+}
+
+.key.active {
+    background-color: #818cf8 !important;
+    color: #ffffff;
+    box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.2), 0 0 12px rgba(99, 102, 241, 0.8);
+}
+
+.key.black.active {
+    background-color: #4f46e5 !important;
+}
+
+.key-lbl {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+}

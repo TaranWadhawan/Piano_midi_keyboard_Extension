@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QWERTY Piano Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <header id="focus-header" class="blur">
+            <h1>Piano Synth Pro</h1>
+            <span id="focus-status">⚠️ Click here to enable keyboard play</span>
+        </header>
+
+        <!-- SECTION 1: SYNTH CONTROLS -->
+        <div class="panel-section">
+            <div class="control-row">
+                <div class="control-item">
+                    <label for="instrument">Instrument Model</label>
+                    <select id="instrument">
+                        <option value="acoustic">Acoustic Piano Sim</option>
+                        <option value="rhodes">Vintage Electric Tine</option>
+                        <option value="analog">80s Analog Saw Pad</option>
+                        <option value="fm">FM Bell Synth</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label for="octave">Octave Shift</label>
+                    <select id="octave">
+                        <option value="2">Low (-1)</option>
+                        <option value="3" selected>Standard (0)</option>
+                        <option value="4">High (+1)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Effects Row 1 -->
+            <div class="control-row sliders">
+                <div class="control-slider">
+                    <label>Filter Cutoff <span id="cutoff-val">3000Hz</span></label>
+                    <input type="range" id="filter-cutoff" min="100" max="8000" step="50" value="3000">
+                </div>
+                <div class="control-slider">
+                    <label>Resonance <span id="resonance-val">1</span></label>
+                    <input type="range" id="filter-q" min="0.1" max="15" step="0.1" value="1">
+                </div>
+            </div>
+
+            <!-- Effects Row 2 -->
+            <div class="control-row sliders">
+                <div class="control-slider">
+                    <label>Echo Mix <span id="delay-val">20%</span></label>
+                    <input type="range" id="delay-mix" min="0" max="0.8" step="0.05" value="0.2">
+                </div>
+                <div class="control-slider">
+                    <label>Reverb Space <span id="reverb-val">30%</span></label>
+                    <input type="range" id="reverb-mix" min="0" max="0.8" step="0.05" value="0.3">
+                </div>
+            </div>
+
+            <div class="control-row">
+                <div class="control-item-inline">
+                    <input type="checkbox" id="sustain">
+                    <label for="sustain">Sustain Pedal</label>
+                </div>
+                <div class="control-item-inline">
+                    <label for="volume">Volume</label>
+                    <input type="range" id="volume" min="0" max="1" step="0.05" value="0.4" style="width: 80px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: DRUM PADS -->
+        <div class="panel-section drums">
+            <h3>Drum Pads</h3>
+            <div class="drum-pads">
+                <button class="drum-pad" data-drum="kick">Kick <span class="drum-key">[1]</span></button>
+                <button class="drum-pad" data-drum="snare">Snare <span class="drum-key">[2]</span></button>
+                <button class="drum-pad" data-drum="hat">Hi-Hat <span class="drum-key">[3]</span></button>
+                <button class="drum-pad" data-drum="clap">Clap <span class="drum-key">[4]</span></button>
+            </div>
+            <div class="sequencer-controls">
+                <button id="toggle-beat">Play Auto Loop</button>
+                <div class="tempo-control">
+                    <input type="range" id="tempo" min="80" max="160" step="5" value="120">
+                    <span id="tempo-val">120 BPM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: KEYBOARD BED -->
+        <div class="keyboard-scroll-container">
+            <div class="piano-keyboard-container">
+                <!-- White keys -->
+                <div class="key white" data-key="KeyZ" data-note="C4"><span class="key-lbl">Z<br>C</span></div>
+                <div class="key white" data-key="KeyX" data-note="D4"><span class="key-lbl">X<br>D</span></div>
+                <div class="key white" data-key="KeyC" data-note="E4"><span class="key-lbl">C<br>E</span></div>
+                <div class="key white" data-key="KeyV" data-note="F4"><span class="key-lbl">V<br>F</span></div>
+                <div class="key white" data-key="KeyB" data-note="G4"><span class="key-lbl">B<br>G</span></div>
+                <div class="key white" data-key="KeyN" data-note="A4"><span class="key-lbl">N<br>A</span></div>
+                <div class="key white" data-key="KeyM" data-note="B4"><span class="key-lbl">M<br>B</span></div>
+
+                <div class="key white" data-key="KeyQ" data-note="C5"><span class="key-lbl">Q<br>C</span></div>
+                <div class="key white" data-key="KeyW" data-note="D5"><span class="key-lbl">W<br>D</span></div>
+                <div class="key white" data-key="KeyE" data-note="E5"><span class="key-lbl">E<br>E</span></div>
+                <div class="key white" data-key="KeyR" data-note="F5"><span class="key-lbl">R<br>F</span></div>
+                <div class="key white" data-key="KeyT" data-note="G5"><span class="key-lbl">T<br>G</span></div>
+                <div class="key white" data-key="KeyY" data-note="A5"><span class="key-lbl">Y<br>A</span></div>
+                <div class="key white" data-key="KeyU" data-note="B5"><span class="key-lbl">U<br>B</span></div>
+
+                <div class="key white" data-key="KeyI" data-note="C6"><span class="key-lbl">I<br>C</span></div>
+                <div class="key white" data-key="KeyO" data-note="D6"><span class="key-lbl">O<br>D</span></div>
+                <div class="key white" data-key="KeyP" data-note="E6"><span class="key-lbl">P<br>E</span></div>
+
+                <!-- Black keys -->
+                <div class="key black" data-key="KeyS" data-note="Cs4" style="left: calc(100% / 17 * 1 - 10px);"><span
+                        class="key-lbl">S</span></div>
+                <div class="key black" data-key="KeyD" data-note="Ds4" style="left: calc(100% / 17 * 2 - 10px);"><span
+                        class="key-lbl">D</span></div>
+
+                <div class="key black" data-key="KeyG" data-note="Fs4" style="left: calc(100% / 17 * 4 - 10px);"><span
+                        class="key-lbl">G</span></div>
+                <div class="key black" data-key="KeyH" data-note="Gs4" style="left: calc(100% / 17 * 5 - 10px);"><span
+                        class="key-lbl">H</span></div>
+                <div class="key black" data-key="KeyJ" data-note="As4" style="left: calc(100% / 17 * 6 - 10px);"><span
+                        class="key-lbl">J</span></div>
+
+                <div class="key black" data-key="Digit2" data-note="Cs5" style="left: calc(100% / 17 * 8 - 10px);"><span
+                        class="key-lbl">2</span></div>
+                <div class="key black" data-key="Digit3" data-note="Ds5" style="left: calc(100% / 17 * 9 - 10px);"><span
+                        class="key-lbl">3</span></div>
+
+                <div class="key black" data-key="Digit5" data-note="Fs5" style="left: calc(100% / 17 * 11 - 10px);">
+                    <span class="key-lbl">5</span></div>
+                <div class="key black" data-key="Digit6" data-note="Gs5" style="left: calc(100% / 17 * 12 - 10px);">
+                    <span class="key-lbl">6</span></div>
+                <div class="key black" data-key="Digit7" data-note="As5" style="left: calc(100% / 17 * 13 - 10px);">
+                    <span class="key-lbl">7</span></div>
+
+                <div class="key black" data-key="Digit9" data-note="Cs6" style="left: calc(100% / 17 * 15 - 10px);">
+                    <span class="key-lbl">9</span></div>
+                <div class="key black" data-key="Digit0" data-note="Ds6" style="left: calc(100% / 17 * 16 - 10px);">
+                    <span class="key-lbl">0</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="sidepanel.js"></script>
+</body>
+
+</html>
